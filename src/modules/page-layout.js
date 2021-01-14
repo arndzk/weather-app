@@ -33,8 +33,53 @@ const buildMain = () => {
   appendElement('main-children-wrapper', reportCard);
   const currentReport = createElement('div', 'current-report');
   appendElement('report-card', currentReport);
+
   const currentWeatherWrapper = createElement('div', 'current-weather-wrapper');
   appendElement('current-report', currentWeatherWrapper);
+
+  const cityNameWrapper = createElement('div', 'city-name-wrapper');
+  const weatherConditionWrapper = createElement(
+    'div',
+    'weather-condition-wrapper'
+  );
+  const temperatureWrapper = createElement('div', 'temperature-wrapper');
+  const dataWrapper = createElement('div', 'data-wrapper');
+  appendElement('current-weather-wrapper', cityNameWrapper);
+  appendElement('current-weather-wrapper', weatherConditionWrapper);
+  appendElement('current-weather-wrapper', temperatureWrapper);
+  appendElement('current-weather-wrapper', dataWrapper);
+
+  const cityName = createElement('span', 'city-name');
+  const weatherCondition = createElement('img', 'weather-condition');
+  const tempActual = createElement('span', 'temp-actual');
+  const tempFeelsLike = createElement('span', 'temp-feels-like');
+  appendElement('city-name-wrapper', cityName);
+  appendElement('weather-condition-wrapper', weatherCondition);
+  appendElement('temperature-wrapper', tempActual);
+  appendElement('temperature-wrapper', tempFeelsLike);
+
+  const dataLeft = createElement('div', 'data-left', 'data-display');
+  const dataMiddle = createElement('div', 'data-middle', 'data-display');
+  const dataRight = createElement('div', 'data-right', 'data-display');
+  appendElement('data-wrapper', dataLeft);
+  appendElement('data-wrapper', dataMiddle);
+  appendElement('data-wrapper', dataRight);
+
+  const tempLow = createElement('span', 'temp-low');
+  const tempHigh = createElement('span', 'temp-high');
+  appendElement('data-left', tempLow);
+  appendElement('data-left', tempHigh);
+
+  const humidity = createElement('span', 'humidity');
+  const precipitation = createElement('span', 'precipitation');
+  appendElement('data-middle', humidity);
+  appendElement('data-middle', precipitation);
+
+  const sunrise = createElement('span', 'sunrise');
+  const sunset = createElement('span', 'sunset');
+  appendElement('data-right', sunrise);
+  appendElement('data-right', sunset);
+
   const forecastWeatherWrapper = createElement(
     'div',
     'forecast-weather-wrapper'

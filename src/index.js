@@ -1,18 +1,46 @@
 require('babel-polyfill');
+import moment from 'moment-timezone';
 import './styles/styles.css';
 import buildPageLayout from './modules/page-layout';
+import selectElement from './utils/element-selector';
 
 const init = () => {
   buildPageLayout();
 };
 
-init();
-
-const currentWeather = getCurrentWeather();
-getForecastWeather();
-
-console.log(currentWeather);
-//console.log(forecastWeather);
+const displayWeather = async () => {
+  const currentWeather = await getCurrentWeather();
+  const cityName = selectElement('city-name');
+  cityName.textContent = currentWeather.city_name;
+  const weatherCondition = selectElement('weather-condition');
+  weatherCondition.src = `http://openweathermap.org/img/wn/${currentWeather.desc_icon}@4x.png`;
+  const tempActual = selectElement('temp-actual');
+  tempActual.textContent = `${currentWeather.temp}°C`;
+  const tempFeelsLike = selectElement('temp-feels-like');
+  tempFeelsLike.textContent = `Feels like ${currentWeather.temp_feels_like}°C`;
+  const tempLow = selectElement('temp-low');
+  tempLow.textContent = `Low: ${currentWeather.temp_min}°C`;
+  const tempHigh = selectElement('temp-high');
+  tempHigh.textContent = `High: ${currentWeather.temp_max}°C`;
+  const humidity = selectElement('humidity');
+  const precipitation = selectElement('precipitation');
+  humidity.textContent = `Humidity: ${currentWeather.humidity}%`;
+  if (currentWeather.rain != undefined) {
+    precipitation.textContent = `Precipitation: ${currentWeather.rain}`;
+  } else {
+    precipitation.textContent = `Precipitation: -`;
+  }
+  const sunrise = selectElement('sunrise');
+  sunrise.textContent = `Sunrise: ${convertTimestamp(
+    currentWeather.sunrise,
+    currentWeather.timezone
+  )}`;
+  const sunset = selectElement('sunset');
+  sunset.textContent = `Sunset: ${convertTimestamp(
+    currentWeather.sunset,
+    currentWeather.timezone
+  )}`;
+};
 
 async function getCurrentWeather() {
   const response = await fetch(
@@ -43,11 +71,13 @@ const processCurrentData = (weatherData) => {
     city_country: weatherData.sys.country,
     sunrise: weatherData.sys.sunrise,
     sunset: weatherData.sys.sunset,
+    timezone: weatherData.timezone,
     desc: weatherData.weather[0].description,
     desc_icon: weatherData.weather[0].icon,
     temp: weatherData.main.temp,
     temp_feels_like: weatherData.main.feels_like,
     humidity: weatherData.main.humidity,
+    rain: weatherData.main.rain,
     temp_max: weatherData.main.temp_max,
     temp_min: weatherData.main.temp_min,
   };
@@ -75,3 +105,16 @@ const processForecastData = (weatherData) => {
   //const objForecastWeatherData = {};
   //return objForecastWeatherData;
 };
+
+const convertTimestamp = (timestamp, timezone) => {
+  // let date = new Date(timestamp * 10000);
+  // let hours = date.getHours();
+  // let minutes = date.getMinutes();
+  // let time = hours + ':' + minutes;
+  let tz = moment.tz.guess();
+  let time = moment.tz(timestamp * 1000, tz).format('HH:mm');
+  return time;
+};
+
+init();
+displayWeather();
