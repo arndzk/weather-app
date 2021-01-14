@@ -1,4 +1,12 @@
 require('babel-polyfill');
+import './styles/styles.css';
+import buildPageLayout from './modules/page-layout';
+
+const init = () => {
+  buildPageLayout();
+};
+
+init();
 
 const currentWeather = getCurrentWeather();
 getForecastWeather();

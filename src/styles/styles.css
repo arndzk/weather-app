@@ -1,1 +1,10 @@
 @import 'page-layout.css';
+@import 'location-controls';
+@import 'report-card.css';
+@import 'signature.css';
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Source Code Pro', monospace;
+}

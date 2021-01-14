@@ -1,5 +1,4 @@
 @import './_dark-theme.css';
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
 #signature {
   margin: 5px 0px 5px 10px;
@@ -23,6 +22,6 @@
 }
 #signature a:hover {
   text-decoration: none;
-  color: var(--focus);
+  color: #e96d49;
   transition: 0.25s;
 }
