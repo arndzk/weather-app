@@ -1,0 +1,11 @@
+:root {
+  --background: #121212;
+  --side-panel: #181818;
+  --center-panel: #282828;
+  --card: #404040;
+  --primary-text: #ffffff;
+  --secondary-text: #b3b3b3;
+  --line: #2d2d2d;
+  --focus: #42fbad;
+  --error: #fb4290;
+}
