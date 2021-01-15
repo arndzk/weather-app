@@ -11,7 +11,7 @@
 }
 
 #location-search {
-  background-color: var(--card);
+  background-color: var(--center-panel);
   color: var(--primary-text);
   font-size: 16px;
   font-family: 'Source Code Pro', monospace;

@@ -16,7 +16,7 @@
 
 #current-report {
   position: relative;
-  background-color: var(--card);
+  background-color: var(--side-panel);
   display: flex;
   flex-direction: row;
   width: 95%;
@@ -35,12 +35,17 @@
   flex-grow: 1;
   width: 30%;
   margin: 30px 0px 30px 0px;
-  border-right: 1px solid var(--secondary-text);
+  border-right: 1px solid var(--line);
 }
 
 #city-name {
   font-size: 32px;
   color: var(--primary-text);
+}
+
+#weather-condition-desc {
+  font-size: 16px;
+  color: var(--secondary-text);
 }
 
 #temperature-wrapper {
@@ -77,14 +82,50 @@
 }
 
 #data-middle {
-  border-left: 1px solid var(--secondary-text);
-  border-right: 1px solid var(--secondary-text);
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
 }
 
 #forecast-weather-wrapper {
   display: flex;
-  flex-direction: rows;
+  flex-direction: row;
   flex-grow: 3;
   width: 30%;
+  justify-content: space-evenly;
+  align-items: center;
   border-right: 1px solid var(--line);
+}
+
+.forecast-day-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecast-weather-condition-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.forecast-date {
+  font-size: 24px;
+  color: var(--primary-text);
+}
+
+.forecast-weather-condition-desc {
+  font-size: 14px;
+  color: var(--secondary-text);
+}
+
+.forecast-temperature {
+  font-size: 24px;
+  color: var(--primary-text);
+}
+
+.forecast-precipitation {
+  color: #49c5e9;
 }

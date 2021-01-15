@@ -31,6 +31,12 @@ const buildMain = () => {
 
   const reportCard = createElement('div', 'report-card');
   appendElement('main-children-wrapper', reportCard);
+
+  buildWeatherDisplay();
+  buildForecastDisplay();
+};
+
+const buildWeatherDisplay = () => {
   const currentReport = createElement('div', 'current-report');
   appendElement('report-card', currentReport);
 
@@ -42,19 +48,26 @@ const buildMain = () => {
     'div',
     'weather-condition-wrapper'
   );
+  const weatherConditionDescWrapper = createElement(
+    'div',
+    'weather-condition-desc-wrapper'
+  );
   const temperatureWrapper = createElement('div', 'temperature-wrapper');
   const dataWrapper = createElement('div', 'data-wrapper');
   appendElement('current-weather-wrapper', cityNameWrapper);
   appendElement('current-weather-wrapper', weatherConditionWrapper);
+  appendElement('current-weather-wrapper', weatherConditionDescWrapper);
   appendElement('current-weather-wrapper', temperatureWrapper);
   appendElement('current-weather-wrapper', dataWrapper);
 
   const cityName = createElement('span', 'city-name');
   const weatherCondition = createElement('img', 'weather-condition');
+  const weatherConditionDesc = createElement('span', 'weather-condition-desc');
   const tempActual = createElement('span', 'temp-actual');
   const tempFeelsLike = createElement('span', 'temp-feels-like');
   appendElement('city-name-wrapper', cityName);
   appendElement('weather-condition-wrapper', weatherCondition);
+  appendElement('weather-condition-desc-wrapper', weatherConditionDesc);
   appendElement('temperature-wrapper', tempActual);
   appendElement('temperature-wrapper', tempFeelsLike);
 
@@ -79,12 +92,101 @@ const buildMain = () => {
   const sunset = createElement('span', 'sunset');
   appendElement('data-right', sunrise);
   appendElement('data-right', sunset);
+};
 
+const buildForecastDisplay = () => {
   const forecastWeatherWrapper = createElement(
     'div',
     'forecast-weather-wrapper'
   );
   appendElement('current-report', forecastWeatherWrapper);
+
+  for (let i = 0; i < 4; i++) {
+    const forecastDayWrapper = createElement(
+      'div',
+      `forecast-day-wrapper-${i + 1}`,
+      'forecast-day-wrapper'
+    );
+    appendElement('forecast-weather-wrapper', forecastDayWrapper);
+    const forecastDateWrapper = createElement(
+      'div',
+      `forecast-date-wrapper-${i + 1}`,
+      'forecast-date-wrapper'
+    );
+    appendElement(`forecast-day-wrapper-${i + 1}`, forecastDateWrapper);
+    const forecastDate = createElement(
+      'span',
+      `forecast-date-${i + 1}`,
+      'forecast-date'
+    );
+    appendElement(`forecast-date-wrapper-${i + 1}`, forecastDate);
+    const forecastWeatherConditionWrapper = createElement(
+      'div',
+      `forecast-weather-condition-wrapper-${i + 1}`,
+      'forecast-weather-condition-wrapper'
+    );
+    appendElement(
+      `forecast-day-wrapper-${i + 1}`,
+      forecastWeatherConditionWrapper
+    );
+    const forecastWeatherCondition = createElement(
+      'img',
+      `forecast-weather-condition-${i + 1}`,
+      'forecast-weather-condition'
+    );
+    appendElement(
+      `forecast-weather-condition-wrapper-${i + 1}`,
+      forecastWeatherCondition
+    );
+    const forecastWeatherConditionDescWrapper = createElement(
+      'div',
+      `forecast-weather-condition-desc-wrapper-${i + 1}`,
+      'forecast-weather-condition-desc-wrapper'
+    );
+    appendElement(
+      `forecast-day-wrapper-${i + 1}`,
+      forecastWeatherConditionDescWrapper
+    );
+    const forecastWeatherConditionDesc = createElement(
+      'span',
+      `forecast-weather-condition-desc-${i + 1}`,
+      'forecast-weather-condition-desc'
+    );
+    appendElement(
+      `forecast-weather-condition-desc-wrapper-${i + 1}`,
+      forecastWeatherConditionDesc
+    );
+    const forecastTemperatureWrapper = createElement(
+      'div',
+      `forecast-temperature-wrapper-${i + 1}`,
+      'forecast-temperature-wrapper'
+    );
+    appendElement(`forecast-day-wrapper-${i + 1}`, forecastTemperatureWrapper);
+    const forecastTemperature = createElement(
+      'span',
+      `forecast-temperature-${i + 1}`,
+      'forecast-temperature'
+    );
+    appendElement(`forecast-temperature-wrapper-${i + 1}`, forecastTemperature);
+    const forecastPrecipitationWrapper = createElement(
+      'div',
+      `forecast-precipitation-wrapper-${i + 1}`,
+      'forecast-precipitation-wrapper'
+    );
+    appendElement(
+      `forecast-day-wrapper-${i + 1}`,
+      forecastPrecipitationWrapper
+    );
+    const forecastPrecipitation = createElement(
+      'span',
+      `forecast-precipitation-${i + 1}`,
+      'forecast-precipitation'
+    );
+    appendElement(
+      `forecast-precipitation-wrapper-${i + 1}`,
+      forecastPrecipitation
+    );
+  }
 };
 
 const buildFooter = () => {
