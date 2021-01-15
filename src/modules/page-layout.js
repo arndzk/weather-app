@@ -25,9 +25,20 @@ const buildMain = () => {
 
   const locationControls = createElement('div', 'location-controls');
   appendElement('main-children-wrapper', locationControls);
+  const searchBarWrapper = createElement('div', 'search-bar-wrapper');
+  appendElement('location-controls', searchBarWrapper);
+  const searchBarIcon = createElement(
+    'span',
+    'search-bar-icon',
+    'material-icons',
+    'search'
+  );
+  searchBarIcon.classList.add('md-inactive');
+  appendElement('search-bar-wrapper', searchBarIcon);
   const searchBar = createElement('input', 'location-search');
   searchBar.setAttribute('type', 'search');
-  appendElement('location-controls', searchBar);
+  searchBar.setAttribute('placeholder', 'Enter location...');
+  appendElement('search-bar-wrapper', searchBar);
 
   const reportCard = createElement('div', 'report-card');
   appendElement('main-children-wrapper', reportCard);
@@ -41,8 +52,28 @@ const buildGreetingMessage = () => {
   const greetingMsgWrapper = createElement('div', 'greeting-msg');
   appendElement('report-card', greetingMsgWrapper);
   const greetingMsgImg = createElement('img', 'greeting-msg-img');
-  //greetingMsgImg.src =
-  appendElement('report-card', greetingMsgImg);
+  greetingMsgImg.src =
+    'https://raw.githubusercontent.com/arndzk/weather-app/main/src/assets/logo_open_weather.png';
+  appendElement('greeting-msg', greetingMsgImg);
+  const greetingMsgTxtWrapper = createElement(
+    'div',
+    'greeting-msg-txt-wrapper'
+  );
+  appendElement('greeting-msg', greetingMsgTxtWrapper);
+  const greetingMsgTxtWelcome = createElement(
+    'span',
+    'greeting-msg-txt-welcome',
+    null,
+    'Welcome!'
+  );
+  appendElement('greeting-msg-txt-wrapper', greetingMsgTxtWelcome);
+  const greetingMsgTxtInstr = createElement(
+    'span',
+    'greeting-msg-txt-instr',
+    null,
+    'Enter a location in the searchbar to receive a weather report!'
+  );
+  appendElement('greeting-msg-txt-wrapper', greetingMsgTxtInstr);
 };
 
 const buildWeatherDisplay = () => {
