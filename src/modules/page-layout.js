@@ -32,8 +32,17 @@ const buildMain = () => {
   const reportCard = createElement('div', 'report-card');
   appendElement('main-children-wrapper', reportCard);
 
-  buildWeatherDisplay();
-  buildForecastDisplay();
+  buildGreetingMessage();
+  //buildWeatherDisplay();
+  //buildForecastDisplay();
+};
+
+const buildGreetingMessage = () => {
+  const greetingMsgWrapper = createElement('div', 'greeting-msg');
+  appendElement('report-card', greetingMsgWrapper);
+  const greetingMsgImg = createElement('img', 'greeting-msg-img');
+  //greetingMsgImg.src =
+  appendElement('report-card', greetingMsgImg);
 };
 
 const buildWeatherDisplay = () => {
