@@ -1,5 +1,6 @@
 import './styles/styles.css';
 import buildPageLayout from './modules/page-layout';
+import bindEventHandlers from './modules/event-handle';
 // import {
 //   displayCurrentWeather,
 //   displayForecastWeather,
@@ -7,6 +8,7 @@ import buildPageLayout from './modules/page-layout';
 
 const init = () => {
   buildPageLayout();
+  bindEventHandlers();
 };
 
 // const displayWeather = () => {

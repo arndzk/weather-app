@@ -46,6 +46,7 @@
   flex-grow: 4;
   justify-content: center;
   align-items: center;
+  min-height: 800px;
   min-width: 800px;
 }
 

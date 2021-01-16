@@ -1,6 +1,7 @@
 @import 'page-layout.css';
 @import 'location-controls';
 @import 'report-card.css';
+@import 'loading-msg.css';
 @import 'signature.css';
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 

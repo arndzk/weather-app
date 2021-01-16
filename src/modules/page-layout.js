@@ -33,11 +33,10 @@ const buildMain = () => {
     'material-icons',
     'search'
   );
-  searchBarIcon.classList.add('md-inactive');
   appendElement('search-bar-wrapper', searchBarIcon);
   const searchBar = createElement('input', 'location-search');
   searchBar.setAttribute('type', 'search');
-  searchBar.setAttribute('placeholder', 'Enter location...');
+  searchBar.setAttribute('placeholder', 'Enter a location...');
   appendElement('search-bar-wrapper', searchBar);
 
   const reportCard = createElement('div', 'report-card');
