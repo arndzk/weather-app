@@ -1,6 +1,6 @@
-const getCurrentWeather = async () => {
+const getCurrentWeather = async (input) => {
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=Stilís,GR&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
+    `http://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
     { mode: 'cors' }
   );
   const currentWeatherData = await response.json();
@@ -8,9 +8,9 @@ const getCurrentWeather = async () => {
   return processedCurrentData;
 };
 
-const getForecastWeather = async () => {
+const getForecastWeather = async (input) => {
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/forecast?q=Stilís,GR&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
+    `http://api.openweathermap.org/data/2.5/forecast?q=${input}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
     { mode: 'cors' }
   );
   const forecastWeatherData = await response.json();

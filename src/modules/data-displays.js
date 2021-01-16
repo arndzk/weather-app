@@ -1,12 +1,10 @@
-import { getCurrentWeather, getForecastWeather } from './api-calls';
 import {
   convertTimestampTime,
   convertTimestampDate,
 } from '../utils/timestamp-converter';
 import selectElement from '../utils/element-selector';
 
-const displayCurrentWeather = async () => {
-  const currentWeather = await getCurrentWeather();
+const displayCurrentWeather = (currentWeather) => {
   const cityName = selectElement('city-name');
   cityName.textContent = currentWeather.city_name;
   const weatherCondition = selectElement('weather-condition');
@@ -45,8 +43,7 @@ const displayCurrentWeather = async () => {
   )}`;
 };
 
-const displayForecastWeather = async () => {
-  const forecastWeather = await getForecastWeather();
+const displayForecastWeather = (forecastWeather) => {
   console.log(forecastWeather);
   let i = 0;
   forecastWeather.forEach((day) => {

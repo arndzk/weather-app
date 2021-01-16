@@ -1,7 +1,8 @@
 import createElement from '../utils/element-creator';
 import appendElement from '../utils/element-appender';
+import selectElement from '../utils/element-selector';
 
-const showLoadingSpinner = () => {
+const showLoadingSpinner = async () => {
   const loadingMsg = createElement('div', 'loading-msg');
   appendElement('report-card', loadingMsg);
   const loadingSpinnerWrapper = createElement('div', 'loading-spinner-wrapper');
@@ -17,4 +18,16 @@ const showLoadingSpinner = () => {
   appendElement('loading-msg', loadingMsgText);
 };
 
-export default showLoadingSpinner;
+const hideLoadingSpinner = async () => {
+  console.log('hiding loading spinner...');
+  const reportCard = selectElement('report-card');
+  reportCard.innerHTML = '';
+};
+
+const hideGreetingMsg = async (showLoadingSpinner) => {
+  const greetingMsg = selectElement('greeting-msg');
+  greetingMsg.remove();
+  await showLoadingSpinner();
+};
+
+export { showLoadingSpinner, hideLoadingSpinner, hideGreetingMsg };

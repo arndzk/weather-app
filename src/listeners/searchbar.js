@@ -1,19 +1,31 @@
-import showLoadingSpinner from '../modules/loading-spinner';
+import { getCurrentWeather, getForecastWeather } from '../modules/api-calls';
+import {
+  displayCurrentWeather,
+  displayForecastWeather,
+} from '../modules/data-displays';
+import {
+  showLoadingSpinner,
+  hideLoadingSpinner,
+  hideGreetingMsg,
+} from '../modules/loading-spinner';
+import {
+  buildForecastDisplay,
+  buildWeatherDisplay,
+} from '../modules/page-layout';
 
-const addListenerSubmitSearchByEnter = (searchbar, greetingMsg) => {
-  searchbar.addEventListener('keypress', (e) => {
+const addListenerSubmitSearchByEnter = (searchbar) => {
+  searchbar.addEventListener('keypress', async (e) => {
     if (e.key === 'Enter') {
-      hideGreetingMsg(greetingMsg);
-      setTimeout(() => showLoadingSpinner(), 1000);
+      await hideGreetingMsg(showLoadingSpinner);
+      const currentWeather = await getCurrentWeather(searchbar.value);
+      const forecastWeather = await getForecastWeather(searchbar.value);
+      await hideLoadingSpinner();
+      await buildWeatherDisplay();
+      await buildForecastDisplay();
+      displayCurrentWeather(currentWeather);
+      displayForecastWeather(forecastWeather);
     }
   });
-};
-
-const hideGreetingMsg = (greetingMsg) => {
-  greetingMsg.addEventListener('transitionend', () => {
-    greetingMsg.remove();
-  });
-  greetingMsg.style.opacity = '0';
 };
 
 export default addListenerSubmitSearchByEnter;

@@ -43,8 +43,6 @@ const buildMain = () => {
   appendElement('main-children-wrapper', reportCard);
 
   buildGreetingMessage();
-  //buildWeatherDisplay();
-  //buildForecastDisplay();
 };
 
 const buildGreetingMessage = () => {
@@ -75,7 +73,7 @@ const buildGreetingMessage = () => {
   appendElement('greeting-msg-txt-wrapper', greetingMsgTxtInstr);
 };
 
-const buildWeatherDisplay = () => {
+const buildWeatherDisplay = async () => {
   const currentReport = createElement('div', 'current-report');
   appendElement('report-card', currentReport);
 
@@ -133,7 +131,7 @@ const buildWeatherDisplay = () => {
   appendElement('data-right', sunset);
 };
 
-const buildForecastDisplay = () => {
+const buildForecastDisplay = async () => {
   const forecastWeatherWrapper = createElement(
     'div',
     'forecast-weather-wrapper'
@@ -240,4 +238,4 @@ const buildPageLayout = () => {
   buildFooter();
 };
 
-export default buildPageLayout;
+export { buildPageLayout, buildWeatherDisplay, buildForecastDisplay };

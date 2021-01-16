@@ -1,5 +1,5 @@
 import './styles/styles.css';
-import buildPageLayout from './modules/page-layout';
+import { buildPageLayout } from './modules/page-layout';
 import bindEventHandlers from './modules/event-handle';
 // import {
 //   displayCurrentWeather,
