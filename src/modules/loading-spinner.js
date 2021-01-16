@@ -19,14 +19,13 @@ const showLoadingSpinner = async () => {
 };
 
 const hideLoadingSpinner = async () => {
-  console.log('hiding loading spinner...');
   const reportCard = selectElement('report-card');
   reportCard.innerHTML = '';
 };
 
 const hideGreetingMsg = async (showLoadingSpinner) => {
-  const greetingMsg = selectElement('greeting-msg');
-  greetingMsg.remove();
+  const reportCard = selectElement('report-card');
+  reportCard.innerHTML = '';
   await showLoadingSpinner();
 };
 
