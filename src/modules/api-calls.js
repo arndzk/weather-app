@@ -1,11 +1,24 @@
 const getCurrentWeather = async (input) => {
-  const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
-    { mode: 'cors' }
-  );
+  let response;
+  try {
+    response = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
+      { mode: 'cors' }
+    );
+  } catch (err) {
+    if (err.cod === 404) {
+      response = err;
+    } else {
+      throw err;
+    }
+  }
   const currentWeatherData = await response.json();
-  const processedCurrentData = processCurrentData(currentWeatherData);
-  return processedCurrentData;
+  if (currentWeatherData.cod === 200) {
+    const processedCurrentData = processCurrentData(currentWeatherData);
+    return processedCurrentData;
+  } else {
+    return currentWeatherData;
+  }
 };
 
 const getForecastWeather = async (input) => {
@@ -19,7 +32,6 @@ const getForecastWeather = async (input) => {
 };
 
 const processCurrentData = (weatherData) => {
-  console.log(weatherData);
   const objCurrentProcessedData = {
     city_name: weatherData.name,
     city_country: weatherData.sys.country,
@@ -54,7 +66,6 @@ const processForecastData = (weatherData) => {
       rain: day.pop,
     });
   });
-  console.log(filteredForecastList);
   processedForecastData.splice(0, 1);
   return processedForecastData;
 };

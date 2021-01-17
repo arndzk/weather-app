@@ -39,3 +39,11 @@
   border: none;
   flex-grow: 3;
 }
+
+.no-error {
+  border: 1px solid var(--center-panel);
+}
+
+.error {
+  border: 1px solid var(--error);
+}

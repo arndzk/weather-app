@@ -25,7 +25,11 @@ const buildMain = () => {
 
   const locationControls = createElement('div', 'location-controls');
   appendElement('main-children-wrapper', locationControls);
-  const searchBarWrapper = createElement('div', 'search-bar-wrapper');
+  const searchBarWrapper = createElement(
+    'div',
+    'search-bar-wrapper',
+    'no-error'
+  );
   appendElement('location-controls', searchBarWrapper);
   const searchBarIcon = createElement(
     'span',

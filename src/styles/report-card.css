@@ -39,6 +39,11 @@
   margin-left: 30px;
 }
 
+.error-msg {
+  color: var(--secondary-text);
+  font-size: 20px;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;

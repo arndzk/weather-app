@@ -44,7 +44,6 @@ const displayCurrentWeather = (currentWeather) => {
 };
 
 const displayForecastWeather = (forecastWeather) => {
-  console.log(forecastWeather);
   let i = 0;
   forecastWeather.forEach((day) => {
     const forecastDate = selectElement(`forecast-date-${i + 1}`);
