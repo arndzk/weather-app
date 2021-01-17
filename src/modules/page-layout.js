@@ -42,6 +42,13 @@ const buildMain = () => {
   searchBar.setAttribute('type', 'search');
   searchBar.setAttribute('placeholder', 'Enter a location...');
   appendElement('search-bar-wrapper', searchBar);
+  const locationBtn = createElement(
+    'btn',
+    'location-btn',
+    'material-icons',
+    'location_on'
+  );
+  appendElement('location-controls', locationBtn);
 
   const reportCard = createElement('div', 'report-card');
   appendElement('main-children-wrapper', reportCard);

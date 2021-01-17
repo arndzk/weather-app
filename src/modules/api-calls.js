@@ -1,3 +1,23 @@
+const getCurrentWeatherByLocation = async (location) => {
+  const response = await fetch(
+    `http://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.long}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
+    { mode: 'cors' }
+  );
+  const currentWeatherData = await response.json();
+  const processedCurrentData = processCurrentData(currentWeatherData);
+  return processedCurrentData;
+};
+
+const getForecastWeatherByLocation = async (location) => {
+  const response = await fetch(
+    `http://api.openweathermap.org/data/2.5/forecast?lat=${location.lat}&lon=${location.long}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
+    { mode: 'cors' }
+  );
+  const forecastWeatherData = await response.json();
+  const processedForecastData = processForecastData(forecastWeatherData);
+  return processedForecastData;
+};
+
 const getCurrentWeather = async (input) => {
   let response;
   try {
@@ -70,4 +90,9 @@ const processForecastData = (weatherData) => {
   return processedForecastData;
 };
 
-export { getCurrentWeather, getForecastWeather };
+export {
+  getCurrentWeather,
+  getForecastWeather,
+  getCurrentWeatherByLocation,
+  getForecastWeatherByLocation,
+};
