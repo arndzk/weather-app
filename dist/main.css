@@ -1,0 +1,426 @@
+@import url(https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap);
+:root {
+  --background: #121212;
+  --side-panel: #181818;
+  --center-panel: #282828;
+  --card: #404040;
+  --primary-text: #ffffff;
+  --secondary-text: #b3b3b3;
+  --line: #2d2d2d;
+  --focus: #42fbad;
+  --error: #fb4290;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#header {
+  color: var(--primary-text);
+  background-color: var(--background);
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0.2;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  min-height: 50px;
+}
+
+#logo-container {
+  margin-left: 30px;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+#title-container {
+  margin-left: 10px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+#title-span {
+  font-size: 24px;
+}
+
+#main {
+  background-color: var(--side-panel);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 4;
+  justify-content: center;
+  align-items: center;
+  min-height: 800px;
+  min-width: 800px;
+}
+
+#main-children-wrapper {
+  position: relative;
+  top: -30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 66%;
+}
+
+#footer {
+  color: var(--secondary-text);
+  background-color: var(--background);
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0.1;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  min-height: 40px;
+}
+
+#location-controls {
+  display: flex;
+  flex-direction: row;
+  height: 10%;
+  width: 75%;
+  min-height: 60px;
+  min-width: 1000px;
+  margin-bottom: 10px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#location-btn {
+  margin-left: 10px;
+  background-color: var(--center-panel);
+  color: var(--secondary-text);
+  height: 45px;
+  width: 45px;
+  border-radius: 4px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+#search-bar-wrapper {
+  background-color: var(--center-panel);
+  height: 75%;
+  border-radius: 4px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#search-bar-icon {
+  flex-grow: 1;
+  margin-left: 10px;
+  color: var(--secondary-text);
+  user-select: none;
+}
+
+#location-search {
+  background-color: var(--center-panel);
+  color: var(--primary-text);
+  font-size: 16px;
+  font-family: 'Source Code Pro', monospace;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: none;
+  flex-grow: 3;
+}
+
+.no-error {
+  border: 1px solid var(--center-panel);
+}
+
+.error {
+  border: 1px solid var(--error);
+}
+
+#report-card {
+  flex-grow: 4;
+  background-color: var(--center-panel);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: 50%;
+  min-width: 1000px;
+  min-height: 500px;
+  border-radius: 4px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+#greeting-msg {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: opacity 0.1s;
+}
+
+#greeting-msg-txt-wrapper {
+  color: var(--primary-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0px 30px 0px 30px;
+}
+
+#greeting-msg-txt-welcome {
+  font-size: 64px;
+}
+
+#greeting-msg-txt-instr {
+  color: var(--secondary-text);
+  margin-left: 30px;
+}
+
+.error-msg {
+  color: var(--secondary-text);
+  font-size: 20px;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#current-report {
+  position: relative;
+  background-color: var(--side-panel);
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  height: 90%;
+  margin: 10px 10px 10px 10px;
+  border-radius: 4px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  animation: fadein 0.5s;
+}
+
+#current-weather-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 30%;
+  margin: 30px 0px 30px 0px;
+  border-right: 1px solid var(--line);
+}
+
+#city-name {
+  font-size: 32px;
+  color: var(--primary-text);
+}
+
+#weather-condition-desc {
+  font-size: 16px;
+  color: var(--secondary-text);
+}
+
+#temperature-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#temp-actual {
+  font-size: 32px;
+  color: var(--primary-text);
+}
+
+#temp-feels-like {
+  font-size: 16px;
+  color: var(--secondary-text);
+}
+
+#data-wrapper {
+  font-size: 12px;
+  color: var(--secondary-text);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.data-display {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px 0px 10px;
+}
+
+#data-middle {
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+}
+
+#forecast-weather-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 3;
+  width: 30%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.forecast-day-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecast-weather-condition-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.forecast-date {
+  font-size: 24px;
+  color: var(--primary-text);
+}
+
+.forecast-weather-condition-desc {
+  font-size: 14px;
+  color: var(--secondary-text);
+}
+
+.forecast-temperature {
+  font-size: 24px;
+  color: var(--primary-text);
+}
+
+.forecast-precipitation {
+  color: #49c5e9;
+}
+
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#loading-msg {
+  animation: fadein 0.5s;
+}
+
+#loading-spinner-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+#loading-spinner {
+  height: 50%;
+  opacity: 1;
+  position: relative;
+  transition: opacity linear 0.1s;
+}
+
+#loading-spinner::before {
+  animation: 2s linear infinite spinner;
+  border: solid 8px var(--card);
+  border-bottom-color: #e96d49;
+  border-radius: 50%;
+  content: '';
+  height: 80px;
+  left: 50%;
+  opacity: inherit;
+  position: absolute;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  transform-origin: center;
+  width: 80px;
+  will-change: transform;
+}
+
+#loading-msg-text {
+  color: var(--secondary-text);
+  font-size: 20px;
+  position: relative;
+  top: 80px;
+}
+
+:root {
+  --background: #121212;
+  --side-panel: #181818;
+  --center-panel: #282828;
+  --card: #404040;
+  --primary-text: #ffffff;
+  --secondary-text: #b3b3b3;
+  --line: #2d2d2d;
+  --focus: #42fbad;
+  --error: #fb4290;
+}
+
+#signature {
+  margin: 5px 0px 5px 10px;
+  font-size: 12px;
+  font-family: 'Source Code Pro', monospace;
+  font-style: italic;
+}
+#red-heart {
+  font-size: 16px;
+  color: red;
+}
+.emoji {
+  font-style: normal;
+}
+#signature a {
+  text-decoration: none;
+}
+#signature a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+#signature a:hover {
+  text-decoration: none;
+  color: #e96d49;
+  transition: 0.25s;
+}
+
+body {
+  margin: 0;
+  font-family: 'Source Code Pro', monospace;
+}
+
