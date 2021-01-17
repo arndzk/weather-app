@@ -1,6 +1,6 @@
 const getCurrentWeatherByLocation = async (location) => {
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.long}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
+    `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.long}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
     { mode: 'cors' }
   );
   const currentWeatherData = await response.json();
@@ -10,7 +10,7 @@ const getCurrentWeatherByLocation = async (location) => {
 
 const getForecastWeatherByLocation = async (location) => {
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/forecast?lat=${location.lat}&lon=${location.long}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${location.lat}&lon=${location.long}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
     { mode: 'cors' }
   );
   const forecastWeatherData = await response.json();
@@ -22,7 +22,7 @@ const getCurrentWeather = async (input) => {
   let response;
   try {
     response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
       { mode: 'cors' }
     );
   } catch (err) {
@@ -43,7 +43,7 @@ const getCurrentWeather = async (input) => {
 
 const getForecastWeather = async (input) => {
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/forecast?q=${input}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
+    `https://api.openweathermap.org/data/2.5/forecast?q=${input}&units=metric&appid=081c1b58a25687e5825ff83fea5dc34a`,
     { mode: 'cors' }
   );
   const forecastWeatherData = await response.json();
